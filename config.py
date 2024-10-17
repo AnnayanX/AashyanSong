@@ -12,13 +12,13 @@ API_HASH = getenv("API_HASH")
 # Get your token from @BotFather on Telegram.
 BOT_TOKEN = getenv("BOT_TOKEN")
 # Add Owner Username without @ 
-OWNER_USERNAME = getenv("OWNER_USERNAME","AryavartX")
+OWNER_USERNAME = getenv("OWNER_USERNAME","Pragyan")
 # Get Your bot username
-BOT_USERNAME = getenv("BOT_USERNAME" , "AashikaMusicBot")
+BOT_USERNAME = getenv("BOT_USERNAME" , "VersersMusicBot")
 # Don't Add style font 
-BOT_NAME = getenv("BOT_NAME" , "Aashika Music")
+BOT_NAME = getenv("BOT_NAME" , "Versers Music")
 #get Your Assistant User name
-ASSUSERNAME = getenv("ASSUSERNAME" , "AashikaMusicAssistant")
+ASSUSERNAME = getenv("ASSUSERNAME" , "VersersMusicAssistant")
 EVALOP = list(map(int, getenv("EVALOP","7005020577").split()))
 
 # Get your mongo url from cloud.mongodb.com
@@ -86,21 +86,21 @@ confirmer = {}
 
 
 START_IMG_URL = getenv(
-    "START_IMG_URL", "https://graph.org/file/1df484ee2b80ec2e2bd2e.jpg"
+    "START_IMG_URL", "https://graph.org/file/b9463a0c5e01efec0c799-b1de962c295a265ea4.jpg"
 )
 PING_IMG_URL = getenv(
-    "PING_IMG_URL", "https://graph.org/file/0dfcbd2935f41b21af907.jpg"
+    "PING_IMG_URL", "https://graph.org/file/b9463a0c5e01efec0c799-b1de962c295a265ea4.jpg"
 )
-PLAYLIST_IMG_URL = "https://telegra.ph/file/e02fcc6bbfa0a882d6c8b.jpg"
-STATS_IMG_URL = "https://telegra.ph/file/e02fcc6bbfa0a882d6c8b.jpg"
-TELEGRAM_AUDIO_URL = "https://telegra.ph/file/e02fcc6bbfa0a882d6c8b.jpg"
-TELEGRAM_VIDEO_URL = "https://telegra.ph/file/e02fcc6bbfa0a882d6c8b.jpg"
-STREAM_IMG_URL = "https://telegra.ph/file/e02fcc6bbfa0a882d6c8b.jpg"
-SOUNCLOUD_IMG_URL = "https://telegra.ph/file/e02fcc6bbfa0a882d6c8b.jpg"
-YOUTUBE_IMG_URL = "https://telegra.ph/file/e02fcc6bbfa0a882d6c8b.jpg"
-SPOTIFY_ARTIST_IMG_URL = "https://telegra.ph/file/e02fcc6bbfa0a882d6c8b.jpg"
-SPOTIFY_ALBUM_IMG_URL = "https://telegra.ph/file/e02fcc6bbfa0a882d6c8b.jpg"
-SPOTIFY_PLAYLIST_IMG_URL = "https://telegra.ph/file/e02fcc6bbfa0a882d6c8b.jpg"
+PLAYLIST_IMG_URL = "https://graph.org/file/b9463a0c5e01efec0c799-b1de962c295a265ea4.jpg"
+STATS_IMG_URL = "https://graph.org/file/b9463a0c5e01efec0c799-b1de962c295a265ea4.jpg"
+TELEGRAM_AUDIO_URL = "https://graph.org/file/b9463a0c5e01efec0c799-b1de962c295a265ea4.jpg"
+TELEGRAM_VIDEO_URL = "https://graph.org/file/b9463a0c5e01efec0c799-b1de962c295a265ea4.jpg"
+STREAM_IMG_URL = "https://graph.org/file/b9463a0c5e01efec0c799-b1de962c295a265ea4.jpg"
+SOUNCLOUD_IMG_URL = "https://graph.org/file/b9463a0c5e01efec0c799-b1de962c295a265ea4.jpg"
+YOUTUBE_IMG_URL = "https://graph.org/file/b9463a0c5e01efec0c799-b1de962c295a265ea4.jpg"
+SPOTIFY_ARTIST_IMG_URL = "https://graph.org/file/b9463a0c5e01efec0c799-b1de962c295a265ea4.jpg"
+SPOTIFY_ALBUM_IMG_URL = "https://graph.org/file/b9463a0c5e01efec0c799-b1de962c295a265ea4.jpg"
+SPOTIFY_PLAYLIST_IMG_URL = "https://graph.org/file/b9463a0c5e01efec0c799-b1de962c295a265ea4.jpg"
 
 
 def time_to_seconds(time):

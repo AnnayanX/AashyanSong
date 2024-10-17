@@ -1,7 +1,7 @@
 {
-    "name": "AashikaMusicBot",
+    "name": "PragyanMusic",
     "description": "A Telegram Music Player Bot, written in Python with Pyrogram and Py-Tgcalls.",
-    "logo": "https://telegra.ph/file/cb6486633fe8d630a6070.jpg",
+    "logo": "https://graph.org/file/b9463a0c5e01efec0c799-b1de962c295a265ea4.jpg",
     "keywords": [
     "python3",
     "telegram",
