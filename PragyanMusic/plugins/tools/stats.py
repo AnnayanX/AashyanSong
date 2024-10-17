@@ -28,7 +28,7 @@ def is_owner(user_id):
 @language
 async def stats_global(client, message: Message, _):
     if not is_owner(message.from_user.id):
-        return await message.reply("TUM KON HAI BHAI??")
+        return await message.reply(f"𝐓𝐔𝐌 𝐊𝐎𝐍 𝐇𝐀𝐈 𝐁𝐇𝐀𝐈?? [@{message.from_user.username}](tg://user?id={message.from_user.id})")
     
     upl = stats_buttons(_, True if message.from_user.id in SUDOERS else False)
     await message.reply_photo(
@@ -42,7 +42,7 @@ async def stats_global(client, message: Message, _):
 @languageCB
 async def home_stats(client, CallbackQuery, _):
     if not is_owner(CallbackQuery.from_user.id):
-        return await CallbackQuery.answer("TUM KON HAI BHAI??", show_alert=True)
+        return await CallbackQuery.answer(f"𝐓𝐔𝐌 𝐊𝐎𝐍 𝐇𝐀𝐈 𝐁𝐇𝐀𝐈??", show_alert=True)
     
     upl = stats_buttons(_, True if CallbackQuery.from_user.id in SUDOERS else False)
     await CallbackQuery.edit_message_text(
@@ -55,7 +55,7 @@ async def home_stats(client, CallbackQuery, _):
 @languageCB
 async def overall_stats(client, CallbackQuery, _):
     if not is_owner(CallbackQuery.from_user.id):
-        return await CallbackQuery.answer("TUM KON HAI BHAI??", show_alert=True)
+        return await CallbackQuery.answer(f"𝐓𝐔𝐌 𝐊𝐎𝐍 𝐇𝐀𝐈 𝐁𝐇𝐀𝐈??", show_alert=True)
     
     await CallbackQuery.answer()
     upl = back_stats_buttons(_)
@@ -92,7 +92,7 @@ async def bot_stats(client, CallbackQuery, _):
     if CallbackQuery.from_user.id not in SUDOERS:
         return await CallbackQuery.answer(_["gstats_4"], show_alert=True)
     if not is_owner(CallbackQuery.from_user.id):
-        return await CallbackQuery.answer("TUM KON HAI BHAI??", show_alert=True)
+        return await CallbackQuery.answer(f"𝐓𝐔𝐌 𝐊𝐎𝐍 𝐇𝐀𝐈 𝐁𝐇𝐀𝐈??", show_alert=True)
     
     upl = back_stats_buttons(_)
     try:
@@ -100,17 +100,26 @@ async def bot_stats(client, CallbackQuery, _):
     except:
         pass
     await CallbackQuery.edit_message_text(_["gstats_1"].format(app.mention))
+    
+    # System Stats Gathering
     p_core = psutil.cpu_count(logical=False)
     t_core = psutil.cpu_count(logical=True)
     ram = str(round(psutil.virtual_memory().total / (1024.0**3))) + " ɢʙ"
+
+    # Fetch CPU frequency and handle gracefully
     try:
-        cpu_freq = psutil.cpu_freq().current
-        if cpu_freq >= 1000:
-            cpu_freq = f"{round(cpu_freq / 1000, 2)}ɢʜᴢ"
+        cpu_freq_info = psutil.cpu_freq()
+        if cpu_freq_info:
+            cpu_freq = cpu_freq_info.current
+            if cpu_freq >= 1000:
+                cpu_freq = f"{round(cpu_freq / 1000, 2)}ɢʜᴢ"
+            else:
+                cpu_freq = f"{round(cpu_freq, 2)}ᴍʜᴢ"
         else:
-            cpu_freq = f"{round(cpu_freq, 2)}ᴍʜᴢ"
+            cpu_freq = "ᴜɴᴀᴠᴀɪʟᴀʙʟᴇ"
     except:
         cpu_freq = "ғᴀɪʟᴇᴅ ᴛᴏ ғᴇᴛᴄʜ"
+
     hdd = psutil.disk_usage("/")
     total = hdd.total / (1024.0**3)
     used = hdd.used / (1024.0**3)
@@ -120,6 +129,7 @@ async def bot_stats(client, CallbackQuery, _):
     storage = call["storageSize"] / 1024
     served_chats = len(await get_served_chats())
     served_users = len(await get_served_users())
+
     text = _["gstats_5"].format(
         app.mention,
         len(ALL_MODULES),
