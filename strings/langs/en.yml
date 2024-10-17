@@ -161,7 +161,7 @@ str_2 : "➻ Valid Stream Verified.\n\nProcessing..."
 str_3 : "Failed To Stream Youtube Live Stream No Live Format Found."
 
 ping_1 : "{0} Is Pinging..."
-ping_2 : "{1}\n\n🏓 Pong : {0}ms..\n\n➻ System Stats :\n\n↬ Uptime : {2}\n↬ Ram : {3}\n↬ Cpu : {4}\n↬ Disk : {5}\n↬ Py-Tgcalls : {6}ms\n\n🥀By » AryavartX ♡︎"
+ping_2 : "{1}\n\n🏓 Pong : {0}ms..\n\n➻ System Stats :\n\n↬ Uptime : {2}\n↬ Ram : {3}\n↬ Cpu : {4}\n↬ Disk : {5}\n↬ Py-Tgcalls : {6}ms\n\n🥀By » @Pragyan ♡︎"
 
 queue_1 : "» Fetching Queue...\n\nPlease Wait..."
 queue_2 : "» Queue Empty."
