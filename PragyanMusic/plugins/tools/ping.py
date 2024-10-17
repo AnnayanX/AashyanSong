@@ -42,9 +42,9 @@ async def ping_com(client, message: Message, _):
 
     # Sequence of edits with content check to avoid error
     ping_captions = [
-        "**🥀𝐏𝐈𝐍𝐆𝐈𝐍𝐆 𝐤𝐫𝐫𝐡𝐚 **",
-        "**🥀𝐏𝐈𝐍𝐆 𝐡𝐚𝐢  .**",
-        "**🥀𝐏𝐈𝐍𝐆 𝐝𝐨𝐧𝐞 ..**",
+        "**🥀𝐔𝐌𝐌𝐌𝐌𝐌𝐌𝐌𝐌𝐌𝐌𝐌 𝐏𝐈𝐍𝐆 𝐊𝐑𝐍𝐀 𝐇𝐀𝐈????? **",
+        "**🥀𝐎𝐇𝐇 𝐇𝐀𝐀𝐍 𝐎𝐊 𝐏𝐈𝐍𝐆𝐈𝐍𝐆 𝐏𝐈𝐍𝐆𝐈𝐍𝐆....**",
+        "**🥀𝐏𝐈𝐍𝐆𝐈𝐍𝐆 𝐃𝐎𝐍𝐄 𝐖𝐄𝐖....**",
         "**𝐀𝐍𝐀𝐋𝐘𝐒𝐈𝐍𝐆 !**",
         "**📩𝐒𝐄𝐍𝐃𝐈𝐍𝐆...**"
     ]
@@ -59,8 +59,8 @@ async def ping_com(client, message: Message, _):
     UP, CPU, RAM, DISK = await bot_sys_stats()
     resp = (datetime.now() - start).microseconds / 1000
 
-    # Format the text
-    text = _["ping_2"].format(resp, app.name, UP, RAM, CPU, DISK, pytgping)
+    # Format the text and use the desired font for the app name
+    text = _["ping_2"].format(resp, "𝐏𝐫𝐚𝐠𝐲𝐚𝐧 𝐌𝐮𝐬𝐢𝐜", UP, RAM, CPU, DISK, pytgping)
     
     # Create carbon image
     carbon = await make_carbon(text)
@@ -82,15 +82,15 @@ async def ping_com(client, message: Message, _):
                 ],
                 [
                     InlineKeyboardButton(
-                        text="✦ ɢʀᴏᴜᴘ ✦", url=f"https://t.me/CodeSavy",
+                        text="✦ 𝐆𝐫𝐨𝐮𝐩 ✦", url=f"https://t.me/CodeSavy",
                     ),
                     InlineKeyboardButton(
-                        text="✧ ᴍᴏʀᴇ ✧", url=f"https://t.me/CodeSavy",
+                        text="✧ 𝐌𝐨𝐫𝐞 ✧", url=f"https://t.me/CodeSavy",
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        text="❅ ʜᴇʟᴘ ❅", callback_data="settings_back_helper"
+                        text="❅ 𝐇𝐞𝐥𝐩 ❅", callback_data="settings_back_helper"
                     )
                 ],
             ]
