@@ -12,7 +12,7 @@ git()
 dbb()
 heroku()
 
-app = AashikaMusicBot()
+app = PragyanMusic()
 api = SafoneAPI()
 userbot = Userbot()
 
