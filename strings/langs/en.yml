@@ -1,6 +1,4 @@
-
 name : 🇺🇸 English
-
 general_1 : "» Reply To A User's Message Or Give Username/User Id."
 general_2 : "» Something Went Wrong While Processing Your Query.\n\nException : <code>{0}</code>"
 general_3 : "You're An Anonymous Admin In This Chat Revert Back To User Account For Using Me."
