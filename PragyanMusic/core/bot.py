@@ -1,3 +1,5 @@
+import pyrogram
+pyrogram.utils.MIN_CHANNEL_ID = -1002151632725
 from pyrogram import Client, errors
 from pyrogram.enums import ChatMemberStatus, ParseMode
 
@@ -6,15 +8,16 @@ import config
 from ..logging import LOGGER
 
 
-class PragyanMusic(Client):
+class Aashika(Client):
     def __init__(self):
-        LOGGER(__name__).info(f"Starting Bot... | Logger: @pragyanmusiclogs")
+        LOGGER(__name__).info(f"Starting Bot...")
         super().__init__(
-            name="PragyanMusic",
+            name="AashikaMusic",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             bot_token=config.BOT_TOKEN,
             in_memory=True,
+            parse_mode=ParseMode.HTML,
             max_concurrent_transmissions=7,
         )
 
@@ -26,35 +29,28 @@ class PragyanMusic(Client):
         self.mention = self.me.mention
 
         try:
-            # Get the chat by username
-            log_chat = await self.get_chat("@pragyanmusiclogs")
-            
-            # Send a message to the log channel
             await self.send_message(
-                chat_id=log_chat.id,
+                chat_id=config.LOG_GROUP_ID,
                 text=f"<u><b>» {self.mention} ʙᴏᴛ sᴛᴀʀᴛᴇᴅ :</b><u>\n\nɪᴅ : <code>{self.id}</code>\nɴᴀᴍᴇ : {self.name}\nᴜsᴇʀɴᴀᴍᴇ : @{self.username}",
             )
         except (errors.ChannelInvalid, errors.PeerIdInvalid):
             LOGGER(__name__).error(
-                "Bot has failed to access the log group/channel. Make sure that you have added your bot to your log group/channel. | Logger: @pragyanmusiclogs"
+                "Bot has failed to access the log group/channel. Make sure that you have added your bot to your log group/channel."
             )
             exit()
         except Exception as ex:
             LOGGER(__name__).error(
-                f"Bot has failed to access the log group/channel.\n  Reason : {type(ex).__name__}. | Logger: @pragyanmusiclogs"
+                f"Bot has failed to access the log group/channel.\n  Reason : {type(ex).__name__}."
             )
             exit()
 
-        # Ensure the bot is an admin in the log group
-        a = await self.get_chat_member(log_chat.id, self.id)
+        a = await self.get_chat_member(config.LOG_GROUP_ID, self.id)
         if a.status != ChatMemberStatus.ADMINISTRATOR:
             LOGGER(__name__).error(
-                "Please promote your bot as an admin in your log group/channel. | Logger: @pragyanmusiclogs"
+                "Please promote your bot as an admin in your log group/channel."
             )
             exit()
-
-        LOGGER(__name__).info(f"Music Bot Started as {self.name} | Logger: @pragyanmusiclogs")
+        LOGGER(__name__).info(f"Music Bot Started as {self.name}")
 
     async def stop(self):
         await super().stop()
-        LOGGER(__name__).info(f"Music Bot Stopped. | Logger: @pragyanmusiclogs")
