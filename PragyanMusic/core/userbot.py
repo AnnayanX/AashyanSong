@@ -63,9 +63,17 @@ class Userbot(Client):
                 
                 assistants.append(len(assistants) + 1)
                 try:
-                    # Get the chat by username
+                    # Get the log group by username
                     logger_chat = await assistant.get_chat("@pragyanmusiclogs")
-                    await assistant.send_message(logger_chat.id, "Assistant Started")
+                    
+                    # Check if the voice chat is active
+                    chat_info = await assistant.get_chat(logger_chat.id)
+                    if chat_info.voice_chat:
+                        await assistant.send_message(logger_chat.id, "Assistant Started")
+                    else:
+                        LOGGER(__name__).error(
+                            f"Voice chat is not active in the log group {logger_chat.username}. Please start the voice chat."
+                        )
                 except Exception as e:
                     LOGGER(__name__).error(
                         f"Assistant Account {len(assistants)} has failed to access the log Group. Error: {e}"
@@ -92,4 +100,3 @@ class Userbot(Client):
                 await self.five.stop()
         except Exception as e:
             LOGGER(__name__).error(f"Error stopping assistants: {e}")
-
