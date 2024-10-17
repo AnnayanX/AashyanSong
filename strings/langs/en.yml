@@ -1,5 +1,3 @@
-name : 🇺🇸 English
-
 general_1 : "» Reply To A User's Message Or Give Username/User Id."
 general_2 : "» Something Went Wrong While Processing Your Query.\n\nException : <code>{0}</code>"
 general_3 : "You're An Anonymous Admin In This Chat Revert Back To User Account For Using Me."
@@ -161,7 +159,7 @@ str_2 : "➻ Valid Stream Verified.\n\nProcessing..."
 str_3 : "Failed To Stream Youtube Live Stream No Live Format Found."
 
 ping_1 : "{0} Is Pinging..."
-ping_2 : "{1}\n\n🏓 Pong : {0}ms..\n\n➻ System Stats :\n\n↬ Uptime : {2}\n↬ Ram : {3}\n↬ Cpu : {4}\n↬ Disk : {5}\n↬ Py-Tgcalls : {6}ms\n\n🥀By » @Pragyan ♡︎"
+ping_2 : "{1}\n\n🏓 Pong : {0}ms..\n\n➻ System Stats :\n\n↬ Uptime : {2}\n↬ Ram : {3}\n↬ Cpu : {4}\n↬ Disk : {5}\n↬ Py-Tgcalls : {6}ms\n\n🥀By » AryavartX ♡︎"
 
 queue_1 : "» Fetching Queue...\n\nPlease Wait..."
 queue_2 : "» Queue Empty."
