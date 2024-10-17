@@ -18,10 +18,18 @@ from PragyanMusic.utils.decorators.language import language, languageCB
 from PragyanMusic.utils.inline.stats import back_stats_buttons, stats_buttons
 from config import BANNED_USERS
 
+OWNER_ID = 8025794193  # Set the owner ID
+
+def is_owner(user_id):
+    return user_id == OWNER_ID
+
 
 @app.on_message(filters.command(["stats", "gstats"]) & filters.group & ~BANNED_USERS)
 @language
 async def stats_global(client, message: Message, _):
+    if not is_owner(message.from_user.id):
+        return await message.reply("TUM KON HAI BHAI??")
+    
     upl = stats_buttons(_, True if message.from_user.id in SUDOERS else False)
     await message.reply_photo(
         photo=config.STATS_IMG_URL,
@@ -33,6 +41,9 @@ async def stats_global(client, message: Message, _):
 @app.on_callback_query(filters.regex("stats_back") & ~BANNED_USERS)
 @languageCB
 async def home_stats(client, CallbackQuery, _):
+    if not is_owner(CallbackQuery.from_user.id):
+        return await CallbackQuery.answer("TUM KON HAI BHAI??", show_alert=True)
+    
     upl = stats_buttons(_, True if CallbackQuery.from_user.id in SUDOERS else False)
     await CallbackQuery.edit_message_text(
         text=_["gstats_2"].format(app.mention),
@@ -43,6 +54,9 @@ async def home_stats(client, CallbackQuery, _):
 @app.on_callback_query(filters.regex("TopOverall") & ~BANNED_USERS)
 @languageCB
 async def overall_stats(client, CallbackQuery, _):
+    if not is_owner(CallbackQuery.from_user.id):
+        return await CallbackQuery.answer("TUM KON HAI BHAI??", show_alert=True)
+    
     await CallbackQuery.answer()
     upl = back_stats_buttons(_)
     try:
@@ -77,6 +91,9 @@ async def overall_stats(client, CallbackQuery, _):
 async def bot_stats(client, CallbackQuery, _):
     if CallbackQuery.from_user.id not in SUDOERS:
         return await CallbackQuery.answer(_["gstats_4"], show_alert=True)
+    if not is_owner(CallbackQuery.from_user.id):
+        return await CallbackQuery.answer("TUM KON HAI BHAI??", show_alert=True)
+    
     upl = back_stats_buttons(_)
     try:
         await CallbackQuery.answer()
